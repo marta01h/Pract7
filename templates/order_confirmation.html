@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подтверждение заказа</title>
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">
+</head>
+<body>
+    <main>
+        <h1>Спасибо за ваш заказ!</h1>
+        <p>Ваш заказ был успешно принят. Подробности:</p>
+
+        <div class="order-details">
+            <p><strong>Номер заказа:</strong> {{ order.id }}</p>
+            <p><strong>Адрес доставки:</strong> {{ order.address }}</p>
+            <p><strong>Телефон:</strong> {{ order.phone }}</p>
+            <p><strong>Метод оплаты:</strong> {{ order.payment_method }}</p>
+            <p><strong>Общая сумма:</strong> {{ order.total_amount }} ₽</p>
+        </div>
+
+
+
+        <a href="{% url 'catalog' %}" class="button">Вернуться в каталог</a>
+    </main>
+</body>
+</html>
