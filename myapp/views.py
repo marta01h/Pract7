@@ -55,12 +55,15 @@ def school(request):
 def discount(request):
     return render(request, 'myapp/discount.html')
 
+
 def read(request):
     return render(request, 'myapp/read.html')
+
 
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     return render(request, 'myapp/book1.html', {'book': book})
+
 
 @login_required
 def cart_view(request):
@@ -115,7 +118,7 @@ def checkout_view(request):
 
         # Сообщение для пользователя
         messages.success(request, 'Молодец! Ваш заказ принят на обработку.')
-        return redirect('order_confirmation')  # Перенаправление на страницу подтверждения заказа
+        return redirect('order_confirmation')
 
     return render(request, 'myapp/checkout.html', {'cart_items': cart_items, 'cart_total': cart_total})
 
